@@ -1,23 +1,24 @@
 {
-    "name": "omatech/mage-orders",
-    "description": "Laravel Orders special package for mage",
+    "name": "omatech/mage-plugin-skeleton",
+    "description": "Skeleton to create new plugins for Mage",
     "keywords": [
         "omatech",
-        "mage-orders"
+        "mage",
+        "mage-plugin-skeleton"
     ],
-    "homepage": "https://github.com/omatech/mage-orders",
+    "homepage": "https://github.com/omatech/mage-plugin-skeleton",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Héctor Arnau",
-            "email": "harnau@omatech.com",
+            "name": "Christian Bohollo",
+            "email": "cbohollo@omatech.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.1",
-        "illuminate/support": "5.8.*"
+        "omatech/mage": "0.1.*"
     },
     "require-dev": {
         "orchestra/testbench": "3.8.*",
@@ -36,7 +37,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
@@ -45,7 +45,10 @@
         "laravel": {
             "providers": [
                 "Omatech\\MageOrders\\MageOrdersServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "MageOrders": "Omatech\\MageOrders\\MageOrdersFacade"
+            }
         }
     }
 }

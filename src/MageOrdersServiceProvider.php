@@ -3,6 +3,13 @@
 namespace Omatech\MageOrders;
 
 use Illuminate\Support\ServiceProvider;
+use Omatech\MageOrders\App\Providers\ViewServiceProvider;
+use Omatech\MageOrders\App\Providers\HelperServiceProvider;
+use Omatech\MageOrders\App\Providers\CommandServiceProvider;
+use Omatech\MageOrders\App\Providers\RoutingServiceProvider;
+use Omatech\MageOrders\App\Providers\MigrationServiceProvider;
+use Omatech\MageOrders\App\Providers\MiddlewareServiceProvider;
+use Omatech\MageOrders\App\Providers\ConfigurationServiceProvider;
 
 class MageOrdersServiceProvider extends ServiceProvider
 {
@@ -11,37 +18,6 @@ class MageOrdersServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'mage-orders');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'mage-orders');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('mage-orders.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/mage-orders'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/mage-orders'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/mage-orders'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
     }
 
     /**
@@ -49,12 +25,14 @@ class MageOrdersServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'mage-orders');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('mage-orders', function () {
-            return new MageOrders;
-        });
+        //if (in_array('mage-orders', config('mage.plugins'))) {
+            $this->app->register(CommandServiceProvider::class);
+            $this->app->register(ConfigurationServiceProvider::class);
+            $this->app->register(HelperServiceProvider::class);
+            $this->app->register(MiddlewareServiceProvider::class);
+            $this->app->register(MigrationServiceProvider::class);
+            $this->app->register(RoutingServiceProvider::class);
+            $this->app->register(ViewServiceProvider::class);
+        //}
     }
 }

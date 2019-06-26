@@ -1,5 +1,8 @@
-.idea
 build
 composer.lock
-html
+docs
 vendor
+coverage
+.DS_Store
+.editorconfig
+.idea
