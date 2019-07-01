@@ -10,7 +10,7 @@
 Route::namespace('Omatech\MageOrders\App\Http\Controllers')
      ->prefix(config('mage.prefix'))
      ->middleware('web')
-     ->name('mage-plugin-skeleton.')
+     ->name('mage-plugin-laravel-orders.')
      ->group(function ($route) {
          //routes
          $route->middleware(['mageRedirectIfNotAuthenticated', 'checkForPermissions:mage-access'])->group(function ($logged) {

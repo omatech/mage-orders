@@ -1,6 +1,6 @@
 <li class="nav-header">@lang('mage-plugin-laravel-orders.sidebar.title')</li>
 
-@can('mage-plugin-skeleton-zone', 'mage')
+@can('mage-orders-zone', 'mage')
 <li class="nav-item">
     <a href="#" class="nav-link {{ !isRoute(['mage-plugin-laravel-orders.carts']) ?: 'active' }}">
         <span class="nav-icon">

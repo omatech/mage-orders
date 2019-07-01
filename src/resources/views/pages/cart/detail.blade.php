@@ -137,24 +137,45 @@
         <div class="card-tools"></div>
     </div>
     <div class="card-body">
-        <table id="mage-cartLine-datatable" class="table table-bordered table-hover display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>@lang('mage-plugin-laravel-orders.cart.cartLine.productId')</th>
-                    <th>@lang('mage-plugin-laravel-orders.cart.cartLine.quantity')</th>
-                </tr>
-                @if($cartLines!=null)
-                @foreach($cartLines as $line)
-                <tr>
-                    <td>{{$line->getProductId()}}</td>
-                    <td>{{$line->getQuantity()}}</td>
-                </tr>
-                @endforeach
-                @endif
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <table id="mage-cartLine-datatable" class="table table-bordered table-hover display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>@lang('mage-plugin-laravel-orders.cart.cartLine.productId')</th>
+                            <th>@lang('mage-plugin-laravel-orders.cart.cartLine.quantity')</th>
+                            <th>@lang('mage-plugin-laravel-orders.cart.cartLine.unitPrice')</th>
+                            <th>@lang('mage-plugin-laravel-orders.cart.cartLine.totalPrice')</th>
+                        </tr>
+                        @if($cartLines!=null)
+                        @foreach($cartLines as $line)
+                        @php($product = $line->getProduct())
+                        <tr>
+                            <td>{{$line->getProductId()}}</td>
+                            <td>{{$product->getUnitPrice()}}</td>
+                            <td>{{$line->getQuantity()}} €</td>
+                            <td>{{$line->getTotalPrice()}} €</td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <table id="mage-cartDeliveryResume-datatable" class="table table-bordered table-hover display" style="width:100%">
+                        <tbody>
+                            <tr>
+                                <th>@lang('mage-plugin-laravel-orders.cart.total-price')</th>
+                                <td>{{$cart->getTotalPrice()}} €</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
     </div>
 </div>
 @endsection
