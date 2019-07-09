@@ -29,8 +29,7 @@ class OrdersController extends Controller
         $this->viewData['order'] = $order;
         $this->viewData['deliveryAddress'] = $order->getDeliveryAddress();
         $this->viewData['billingData'] = $order->getBillingData();
-        //$this->viewData['cartLines'] = $order->getOrderLines();
-
+        $this->viewData['orderLines'] = $order->getLines();
 
         
         return view('mage-plugin-laravel-orders::pages.order.detail', $this->viewData);

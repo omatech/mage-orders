@@ -27,6 +27,13 @@ class CustomersController extends Controller
         }
 
         $this->viewData['customer'] = $customer;
+        $this->viewData['orders'] = $customer->getOrders();
+        
+
+        //dd($customer->getDeliveryAddresses());
+        // $this->viewData['deliveryAddress'] = $customer->getDeliveryAddresses();
+        // $this->viewData['billingData'] = $customer->getBillingData();
+        
         
         return view('mage-plugin-laravel-orders::pages.customer.detail', $this->viewData);
     }

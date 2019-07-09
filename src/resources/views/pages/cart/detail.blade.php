@@ -143,6 +143,7 @@
                     <thead>
                         <tr>
                             <th>@lang('mage-plugin-laravel-orders.cart.cartLine.productId')</th>
+                            <th>@lang('mage-plugin-laravel-orders.cart.cartLine.productName')</th>
                             <th>@lang('mage-plugin-laravel-orders.cart.cartLine.quantity')</th>
                             <th>@lang('mage-plugin-laravel-orders.cart.cartLine.unitPrice')</th>
                             <th>@lang('mage-plugin-laravel-orders.cart.cartLine.totalPrice')</th>
@@ -152,6 +153,7 @@
                         @php($product = $line->getProduct())
                         <tr>
                             <td>{{$line->getProductId()}}</td>
+                            <td>{{$product->getName()}}</td>
                             <td>{{$line->getQuantity()}}</td>
                             <td>{{$product->getUnitPrice()}} €</td>
                             <td>{{$line->getTotalPrice()}} €</td>

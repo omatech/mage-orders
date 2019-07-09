@@ -129,4 +129,47 @@
         </div>
     </div>
 </div>
+
+<div class="card">
+        <div class="card-header">
+            <h3 class="card-title">@lang('mage-plugin-laravel-orders.order.view.orderLines')</h3>
+            <div class="card-tools"></div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <table id="mage-orderLine-datatable" class="table table-bordered table-hover display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>@lang('mage-plugin-laravel-orders.order.orderLine.id')</th>
+                                <th>@lang('mage-plugin-laravel-orders.order.ordertLine.quantity')</th>
+                            </tr>
+                            @if($orderLines!=null)
+                            @foreach($orderLines as $line)
+                            <tr>
+                                <td>{{$line->getId()}}</td>
+                                <td>{{$line->getQuantity()}}</td>
+                            </tr>
+                            @endforeach
+                            @endif
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <table id="mage-orderDeliveryResume-datatable" class="table table-bordered table-hover display" style="width:100%">
+                            <tbody>
+                                <tr>
+                                    <th>@lang('mage-plugin-laravel-orders.order.total-price')</th>
+                                    {{-- <td>{{$cart->getTotalPrice()}} €</td> --}}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
 @endsection

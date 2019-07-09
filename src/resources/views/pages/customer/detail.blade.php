@@ -46,4 +46,42 @@
         </div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@lang('mage-plugin-laravel-orders.customer.orders')</h3>
+        <div class="card-tools"></div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <table id="mage-cartOrders-datatable" class="table table-bordered table-hover display" style="width:100%">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>@lang('mage-plugin-laravel-orders.customer.orderLine.id')</th>
+                                <th>@lang('mage-plugin-laravel-orders.customer.orderLine.code')</th>
+                                <th>@lang('mage-plugin-laravel-orders.cacustomerrt.orderLine.totalPrice')</th>
+                                <th>@lang('mage-plugin-laravel-orders.customer.orderLine.status')</th>
+                            </tr>
+                            @if($orders!=null)
+                            @foreach($orders as $item)
+                            <tr>
+                                <td><a href="{{route('mage-plugin-laravel-orders.order.detail', ['id'=>$item->getId()])}}">{{$item->getId()}}</a></td>
+                                <td>{{$item->getCode()}}</td>
+                                <td>{{--$item->getTotalPrice()--}} €</td>
+                                <td>{{$item->getStatus()}}</td>
+                            </tr>
+                            @endforeach
+                            @endif
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

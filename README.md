@@ -1,3 +1,5 @@
+#This package is in development
+
 # Description
 
 
@@ -5,6 +7,16 @@
 ## Installation
 
 
+You can install the package via composer:
+
+```bash
+composer require omatech/mage-orders
+```
+## Usage
+
+``` php
+// Usage description here
+```
 
 ## Credits
 
