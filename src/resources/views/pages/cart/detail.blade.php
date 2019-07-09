@@ -152,8 +152,8 @@
                         @php($product = $line->getProduct())
                         <tr>
                             <td>{{$line->getProductId()}}</td>
-                            <td>{{$product->getUnitPrice()}}</td>
-                            <td>{{$line->getQuantity()}} €</td>
+                            <td>{{$line->getQuantity()}}</td>
+                            <td>{{$product->getUnitPrice()}} €</td>
                             <td>{{$line->getTotalPrice()}} €</td>
                         </tr>
                         @endforeach

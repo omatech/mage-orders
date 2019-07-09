@@ -7,12 +7,18 @@ use Omatech\LaravelOrders\Contracts\Cart;
 
 class CartsController extends Controller
 {
- 
+ //index view (list carts) - detail view
     protected $cart;
 
     public function __construct(Cart $cart){
         $this->cart = $cart;
     }
+
+    public function index(){
+        //$carts = $this->cart::findAll();
+        dd('hi');
+    }
+
 
     public function show($id){
         

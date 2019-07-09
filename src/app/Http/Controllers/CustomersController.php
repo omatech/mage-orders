@@ -7,11 +7,15 @@ use Omatech\LaravelOrders\Contracts\Customer;
 
 class CustomersController extends Controller
 {
- 
+ //index view (list customers) - detail view
     protected $customer;
 
     public function __construct(Customer $customer){
         $this->customer = $customer;
+    }
+
+    public function index(){
+        dd('hi');
     }
 
     public function show($id){
