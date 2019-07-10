@@ -19,6 +19,7 @@
                     <tbody>
                         <tr>
                             <th>@lang('mage-plugin-laravel-orders.order.DeliveryAddress.customer')</th>
+                            <td><a href="{{route('mage-plugin-laravel-orders.customer.detail', ['id'=>$order->getCustomerId()])}}">{{$order->getCustomerId()}}</a></td>
                         </tr>
                         <tr>
                             <th>@lang('mage-plugin-laravel-orders.order.DeliveryAddress.first_name')</th>
