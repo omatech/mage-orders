@@ -14,9 +14,9 @@ class CustomersController extends Controller
         $this->customer = $customer;
     }
 
-    public function index(){
-        dd('hi');
-    }
+    // public function index(){
+    //     dd('hi');
+    // }
 
     public function show($id){
         

@@ -14,9 +14,9 @@ class OrdersController extends Controller
         $this->order = $order;
     }
 
-    public function index(){
-        dd('hi');
-    }
+    // public function index(){
+    //     dd('hi');
+    // }
 
     public function show($id){
         

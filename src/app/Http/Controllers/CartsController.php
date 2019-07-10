@@ -14,10 +14,9 @@ class CartsController extends Controller
         $this->cart = $cart;
     }
 
-    public function index(){
-        //$carts = $this->cart::findAll();
-        dd('hi');
-    }
+    // public function index(){
+    //     dd('hi');
+    // }
 
 
     public function show($id){
