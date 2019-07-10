@@ -22,5 +22,6 @@ Route::namespace('Omatech\MageOrders\App\Http\Controllers')
             
             // $logged->get('orders', 'OrdersController@index')->name('order.list');
             $logged->get('order/{id}', 'OrdersController@show')->name('order.detail');
+            
         });
      });
