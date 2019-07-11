@@ -67,7 +67,7 @@
                             @if($orders!=null)
                             @foreach($orders as $item)
                             <tr>
-                                <td><a href="{{route('mage-plugin-laravel-orders.order.detail', ['id'=>$item->getId()])}}">{{$item->getId()}}</a></td>
+                                <td><a href="{{route('mage-plugin-laravel-orders.orders.detail', ['id'=>$item->getId()])}}">{{$item->getId()}}</a></td>
                                 <td>{{$item->getCode()}}</td>
                                 <td>{{--$item->getTotalPrice()--}} €</td>
                                 <td>{{$item->getStatus()}}</td>

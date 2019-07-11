@@ -14,9 +14,11 @@ class CustomersController extends Controller
         $this->customer = $customer;
     }
 
-    // public function index(){
-    //     dd('hi');
-    // }
+    public function index(){
+        $customers = $this->customer::findAll();
+        $this->viewData['customers'] = $customers;
+        return view('mage-plugin-laravel-orders::pages.customers.index', $this->viewData);
+    }
 
     public function show($id){
         
@@ -35,7 +37,7 @@ class CustomersController extends Controller
         // $this->viewData['billingData'] = $customer->getBillingData();
         
         
-        return view('mage-plugin-laravel-orders::pages.customer.detail', $this->viewData);
+        return view('mage-plugin-laravel-orders::pages.customers.detail', $this->viewData);
     }
 
     

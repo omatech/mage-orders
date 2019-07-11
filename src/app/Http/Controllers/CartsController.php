@@ -14,9 +14,11 @@ class CartsController extends Controller
         $this->cart = $cart;
     }
 
-    // public function index(){
-    //     dd('hi');
-    // }
+    public function index(){
+        $carts = $this->cart::findAll();
+        $this->viewData['carts'] = $carts;
+        return view('mage-plugin-laravel-orders::pages.carts.index', $this->viewData);
+    }
 
 
     public function show($id){
@@ -32,7 +34,7 @@ class CartsController extends Controller
         $this->viewData['billingData'] = $cart->getBillingData();
         $this->viewData['cartLines'] = $cart->getCartLines();
         
-        return view('mage-plugin-laravel-orders::pages.cart.detail', $this->viewData);
+        return view('mage-plugin-laravel-orders::pages.carts.detail', $this->viewData);
     }
 
     

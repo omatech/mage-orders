@@ -14,9 +14,12 @@ class OrdersController extends Controller
         $this->order = $order;
     }
 
-    // public function index(){
-    //     dd('hi');
-    // }
+    public function index(){
+        $orders = $this->order::findAll();
+        $this->viewData['orders'] = $orders;
+        // dd($orders);
+        return view('mage-plugin-laravel-orders::pages.orders.index', $this->viewData);
+    }
 
     public function show($id){
         
@@ -32,7 +35,7 @@ class OrdersController extends Controller
         $this->viewData['orderLines'] = $order->getLines();
 
         
-        return view('mage-plugin-laravel-orders::pages.order.detail', $this->viewData);
+        return view('mage-plugin-laravel-orders::pages.orders.detail', $this->viewData);
     }
 
     
