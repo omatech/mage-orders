@@ -2,7 +2,8 @@
 @section('web-title', __('mage-plugin-laravel-orders.cart.view.web-title'))
 @section('page-title', __('mage-plugin-laravel-orders.cart.view.page-title'))
 @section('breadcrumbs')
-<li class="breadcrumb-item active">@lang('mage-plugin-laravel-orders.cart.view.breadcrumb.title')</li>
+<li class="breadcrumb-item"><a href="{{route('mage-plugin-laravel-orders.carts.list')}}">@lang('mage-plugin-laravel-orders.carts.list.breadcrumb.title')</a></li>
+<li class="breadcrumb-item active">@lang('mage-plugin-laravel-orders.cart.view.breadcrumb.title') : {{$cart->getId()}}</li>
 @endsection
 
 @section('page')

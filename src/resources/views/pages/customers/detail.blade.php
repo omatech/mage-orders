@@ -2,7 +2,8 @@
 @section('web-title', __('mage-plugin-laravel-orders.customer.view.web-title'))
 @section('page-title', __('mage-plugin-laravel-orders.customer.view.page-title'))
 @section('breadcrumbs')
-<li class="breadcrumb-item active">@lang('mage-plugin-laravel-orders.customer.view.breadcrumb.title')</li>
+<li class="breadcrumb-item"><a href="{{route('mage-plugin-laravel-orders.customers.list')}}">@lang('mage-plugin-laravel-orders.customers.list.breadcrumb.title')</a></li>
+<li class="breadcrumb-item active">@lang('mage-plugin-laravel-orders.customer.view.breadcrumb.title') : {{$customer->getId()}}</li>
 @endsection
 
 @section('page')
